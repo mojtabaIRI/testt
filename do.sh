@@ -5,6 +5,6 @@ sudo apt install google-chrome-stable -y
 sudo apt install screen -y
 pip install webdriver-manager
 pip install selenium
-wget -O file.py https://raw.githubusercontent.com/mojtabaIRI/testt/main/ok.py?token=GHSAT0AAAAAABTG5FJZ43MCKB5NOQ26HZXUYT477YA
+wget -O file.py https://raw.githubusercontent.com/mojtabaIRI/testt/main/ok.py
 screen -dmS MySession
 screen -S MySession -p 0 -X stuff "python file.py\n"
