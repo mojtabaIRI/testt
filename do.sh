@@ -7,4 +7,4 @@ pip install webdriver-manager
 pip install selenium
 wget -O file.py https://raw.githubusercontent.com/mojtabaIRI/testt/main/ok.py
 screen -dmS MySession
-screen -S MySession -p 0 -X stuff "python file.py\n"
+screen -S MySession -p 0 -X stuff "python3 file.py\n"
