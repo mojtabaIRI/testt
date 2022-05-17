@@ -3,6 +3,8 @@ echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sud
 sudo apt update 
 sudo apt install google-chrome-stable -y
 sudo apt install screen -y
+pip install websockets
+pip install websocket-client
 pip install webdriver-manager
 pip install selenium
 wget -O file.py https://raw.githubusercontent.com/mojtabaIRI/testt/main/ok.py
