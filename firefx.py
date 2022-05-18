@@ -11,18 +11,18 @@ ws = websocket.WebSocket()
 
 def req_browser():
     while True:
-    try:
-        ws.connect("wss://ws.eo.finance/ws/")
-        ws.send_binary(m.encode())
-        k = ws.recv()
-        if len(k) == 0:
+        try:
+            ws.connect("wss://ws.eo.finance/ws/")
+            ws.send_binary(m.encode())
+            k = ws.recv()
+            if len(k) == 0:
+                continue
+            data = json.loads(k.decode())
+            token = data['message']['token']
+            user_id = data['message']['user_id']
+            break
+        except:
             continue
-        data = json.loads(k.decode())
-        token = data['message']['token']
-        user_id = data['message']['user_id']
-        break
-    except:
-        continue
     print(f"\n[!] token = {token}\n")
     driver = webdriver.Firefox(options=options)
     driver.get("https://miner.eo.finance")
