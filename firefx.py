@@ -1,14 +1,33 @@
+import websocket,
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 options = webdriver.FirefoxOptions()
 options.add_argument('--headless')
 
+
+m = '{"token":null,"v":3,"action":"login","ns":"7","message":{"login":"mojtabasafaee211@gmail.com","password":"12786Moj"},"subscribe":false}'
+ws = websocket.WebSocket()
+
 def req_browser():
+    while True:
+    try:
+        ws.connect("wss://ws.eo.finance/ws/")
+        ws.send_binary(m.encode())
+        k = ws.recv()
+        if len(k) == 0:
+            continue
+        data = json.loads(k.decode())
+        token = data['message']['token']
+        user_id = data['message']['user_id']
+        break
+    except:
+        continue
+    print(f"\n[!] token = {token}\n")
     driver = webdriver.Firefox(options=options)
     driver.get("https://miner.eo.finance")
-    driver.add_cookie({'domain': '.eo.finance', 'expiry': 1967784870, 'httpOnly': False, 'name': 'userId', 'path': '/', 'secure': False, 'value': '922240272'})
-    driver.add_cookie({'domain': '.eo.finance', 'expiry': 1967784870, 'httpOnly': False, 'name': 'token', 'path': '/', 'secure': False, 'value': '0cb6cd98f8f46770c5002f06e39751a87dd85ca7545f1e0b263a572932b9b413e2ffe17896f508dd8e98362619a4e9d22f0406bba48d12c5f01ed727f15ef931'})
+    driver.add_cookie({'domain': '.eo.finance', 'expiry': 1967784870, 'httpOnly': False, 'name': 'userId', 'path': '/', 'secure': False, 'value': str(user_id)})
+    driver.add_cookie({'domain': '.eo.finance', 'expiry': 1967784870, 'httpOnly': False, 'name': 'token', 'path': '/', 'secure': False, 'value': token})
     driver.refresh()
     return driver
 
