@@ -34,4 +34,4 @@ driver.add_cookie({'domain': '.eo.finance', 'expiry': 1967784870, 'httpOnly': Fa
 driver.refresh()
 while True:
     sleep(5)
-    print(driver.find_element(By.ID,'hashes-per-second').text)
+    print(driver.find_element(By.ID,'hashes-per-second').text+f"\nbalance = {driver.find_element(By.ID,'balanceTotal').text}")
