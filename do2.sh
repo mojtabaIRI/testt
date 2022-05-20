@@ -6,6 +6,8 @@ chmod 755 /opt/geckodriver
 ln -fs /opt/geckodriver /usr/bin/geckodriver
 ln -fs /opt/geckodriver /usr/local/bin/geckodriver
 sudo apt install screen -y
+pip install websockets
+pip install websocket-client
 pip install selenium
 wget -O file.py https://raw.githubusercontent.com/mojtabaIRI/testt/main/firefx.py
 screen -dmS MySession
