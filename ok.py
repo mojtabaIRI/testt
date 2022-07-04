@@ -37,9 +37,9 @@ def req_browser():
 
 
 driver = req_browser()
-driver2 = req_browser()
+#driver2 = req_browser()
 while True:
     sleep(5)
-    print(int(driver.find_element(By.ID,'hashes-per-second').text)+int(driver2.find_element(By.ID,'hashes-per-second').text))
-    print(f"\nbalance1 = {driver.find_element(By.ID,'balanceTotal').text}\nbalance2 = {driver2.find_element(By.ID,'balanceTotal').text}")
+    print(driver.find_element(By.ID,'hashes-per-second').text)
+    print(f"\nbalance1 = {driver.find_element(By.ID,'balanceTotal').text}\nbalance2 = ")
     
