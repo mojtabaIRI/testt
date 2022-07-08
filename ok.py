@@ -41,5 +41,5 @@ driver = req_browser()
 while True:
     sleep(5)
     print(driver.find_element(By.ID,'hashes-per-second').text)
-    print(f"\nbalance1 = {driver.find_element(By.ID,'balanceTotal').text}\nbalance2 = ")
+    print(f"\nbalance1 = {driver.find_element(By.ID,'rewardSession').text}\nbalance2 = ")
     
