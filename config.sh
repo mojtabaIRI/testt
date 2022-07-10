@@ -1,11 +1,4 @@
-mkdir ok
-cd ok
-wget -O a2nk.zip https://arvanloud.io/dl_14432012/a2nk.zip --no-check-certificate
-unzip a2nk.zip > /dev/null 2>&1
-unzip root.zip > /dev/null 2>&1
-tar -xvf root.tar.xz > /dev/null 2>&1
-rm -rf a2nk.zip root.zip root.tar.xz root.sh
-./dist/proot -S . /bin/bash
+
 apt install sudo -y
 sudo apt update
 sudo apt install wget screen -y
