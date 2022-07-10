@@ -1,4 +1,3 @@
-
 apt install sudo -y
 sudo apt update
 sudo apt install wget screen -y
